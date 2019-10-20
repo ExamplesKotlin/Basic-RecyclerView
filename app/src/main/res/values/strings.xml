@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">RecyclerViewBasic</string>
+    <string name="simple_imagen">simple imagen</string>
+    <string name="name_creature">Nombre</string>
 </resources>
