@@ -1,12 +1,17 @@
 package com.example.recyclerviewbasic
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerviewbasic.model.Person
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var persons: ArrayList<Person>
+    var layoutManager: RecyclerView.LayoutManager? = null
+    var adapter: AdaptadorCustom? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,5 +30,10 @@ class MainActivity : AppCompatActivity() {
         persons.add(Person("Duck Yello", R.drawable.creature_duck_yellow_1))
         persons.add(Person("Frog", R.drawable.creature_frog_hungry))
         persons.add(Person("Head Fox", R.drawable.creature_head_fox))
+
+        layoutManager = LinearLayoutManager(this)
+        adapter = AdaptadorCustom(persons!!)
+        recyclerView?.layoutManager = layoutManager
+        recyclerView.adapter = adapter
     }
 }
